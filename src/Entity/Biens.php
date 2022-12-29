@@ -14,8 +14,7 @@ class Biens
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?float $numero = null;
+
 
     #[ORM\Column(length: 200)]
     private ?string $titre = null;
@@ -42,6 +41,15 @@ class Biens
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $ville = null;
+
+    #[ORM\Column(length: 30)]
+    private ?string $codePostal = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $numero = null;
+
 
 
     public function getId(): ?int
@@ -49,17 +57,7 @@ class Biens
         return $this->id;
     }
 
-    public function getNumero(): ?float
-    {
-        return $this->numero;
-    }
 
-    public function setNumero(float $numero): self
-    {
-        $this->numero = $numero;
-
-        return $this;
-    }
 
     public function getTitre(): ?string
     {
@@ -153,6 +151,42 @@ class Biens
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCodePostal(): ?string
+    {
+        return $this->codePostal;
+    }
+
+    public function setCodePostal(string $codePostal): self
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    public function getNumero(): ?string
+    {
+        return $this->numero;
+    }
+
+    public function setNumero(string $numero): self
+    {
+        $this->numero = $numero;
 
         return $this;
     }
