@@ -23,14 +23,17 @@ class BiensCrudController extends AbstractCrudController
     {
         return [
             TextField::new('numero'),
-           TextField::new('titre'),
+            TextField::new('titre'),
             SlugField::new('slug')->setTargetFieldName('titre'),
-          TextField::new('surface'),
+            TextField::new('surface'),
             TextField::new('ville'),
-
             TextField::new('codePostal'),
             TextField::new('etat'),
-            ImageField::new('image')->setUploadDir('/public/assets/img'),
+            ImageField::new('image')
+                ->setBasePath('image/')
+                ->setUploadDir('/public/image')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                 ->setRequired(false),
             TextareaField::new('descriptif'),
              MoneyField::new('prix')->setCurrency('EUR'),
             AssociationField::new('category')
