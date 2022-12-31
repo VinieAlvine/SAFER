@@ -22,18 +22,21 @@ class BiensCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('numero'),
-            TextField::new('titre'),
-            SlugField::new('slug')->setTargetFieldName('titre'),
+              TextField::new('Reference'),
+              TextField::new('intitule'),
+             SlugField::new('slug')->setTargetFieldName('intitule'),
             TextField::new('surface'),
-            TextField::new('ville'),
-            TextField::new('codePostal'),
+            TextField::new('localisation'),
             TextField::new('etat'),
             ImageField::new('image')
                 ->setBasePath('image/')
+                ->setWidth(5000)
+                ->setHeight(5000)
                 ->setUploadDir('/public/image')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
-                 ->setRequired(false),
+
+                 ->setRequired(false)
+                 ,
             TextareaField::new('descriptif'),
              MoneyField::new('prix')->setCurrency('EUR'),
             AssociationField::new('category')

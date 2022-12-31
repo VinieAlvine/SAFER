@@ -25,7 +25,8 @@ class TerrainAgricoleController extends AbstractController
       //dd($Biens);
         //dd($Category);
         return $this->render('terrain_agricole/index.html.twig',[
-           'Biens'=>$Biens
+           'Biens'=>$Biens,
+            'Category'=>$Category
        ]);
         //return $this->render('terrain_agricole/index.html.twig',[
          //   'Category'=>$Category

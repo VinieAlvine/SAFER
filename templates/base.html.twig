@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}Welcome SAFER!{% endblock %}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
@@ -41,7 +41,7 @@
                     <div class="col-sm-9">
                         <div class="row">
                             <ul class="info">
-                                <li><i class="icon-info-blocks material-icons">question_answer</i><span>info@HillSide.com</span></li>
+                                <li><i class="icon-info-blocks material-icons">question_answer</i><span>infoSAFER.com</span></li>
                                 <li><i class="icon-info-blocks material-icons">perm_phone_msg</i><span>+(012) 345 6789</span></li>
                             </ul>
                             <div class="clr"></div>
@@ -71,14 +71,15 @@
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark">Biens <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
+                                    <li><a class="waves-effect waves-dark" href="{{ path('app_biens') }}">Tous les Biens</a></li>
                                     <li><a class="waves-effect waves-dark" href="{{ path('app_terrain_agricole') }}">Terrain agricole</a></li>
-                                    <li><a class="waves-effect waves-dark" href="#">prairie</a></li>
-                                    <li><a class="waves-effect waves-dark" href="#">Bois</a></li>
-                                    <li><a class="waves-effect waves-dark" href="#">Bâtiments</a></li>
-                                    <li><a class="waves-effect waves-dark" href="#">Exploitations</a></li>
+                                    <li><a class="waves-effect waves-dark" href="{{ path('app_prairie') }}">prairie</a></li>
+                                    <li><a class="waves-effect waves-dark" href="{{ path('app_bois') }}">Bois</a></li>
+                                    <li><a class="waves-effect waves-dark" href="{{ path('app_batiments') }}">Bâtiments</a></li>
+                                    <li><a class="waves-effect waves-dark" href="{{ path('app_exploitations') }}">Exploitations</a></li>
                                 </ul>
                             </li>
-                            <li><a class="waves-effect waves-dark" href="projects.html">A propos de nous</a></li>
+                            <li><a class="waves-effect waves-dark" href="#abouts">A propos de nous</a></li>
                             <li><a class="waves-effect waves-dark" href="contact.html">Contact</a></li>
                         </ul>
                     </div>

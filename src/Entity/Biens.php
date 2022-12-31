@@ -13,12 +13,6 @@ class Biens
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-
-
-    #[ORM\Column(length: 200)]
-    private ?string $titre = null;
-
     #[ORM\Column(length: 100)]
     private ?string $surface = null;
 
@@ -41,34 +35,19 @@ class Biens
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $ville = null;
+    #[ORM\Column(length: 15)]
+    private ?string $Reference = null;
 
-    #[ORM\Column(length: 30)]
-    private ?string $codePostal = null;
+    #[ORM\Column(length: 200)]
+    private ?string $intitule = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $numero = null;
-
+    #[ORM\Column(length: 10)]
+    private ?string $localisation = null;
 
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-
-
-    public function getTitre(): ?string
-    {
-        return $this->titre;
-    }
-
-    public function setTitre(string $titre): self
-    {
-        $this->titre = $titre;
-
-        return $this;
     }
 
     public function getSurface(): ?string
@@ -155,41 +134,45 @@ class Biens
         return $this;
     }
 
-    public function getVille(): ?string
+    public function getReference(): ?string
     {
-        return $this->ville;
+        return $this->Reference;
     }
 
-    public function setVille(string $ville): self
+    public function setReference(string $Reference): self
     {
-        $this->ville = $ville;
+        $this->Reference = $Reference;
 
         return $this;
     }
 
-    public function getCodePostal(): ?string
+    public function getIntitule(): ?string
     {
-        return $this->codePostal;
+        return $this->intitule;
     }
 
-    public function setCodePostal(string $codePostal): self
+    public function setIntitule(string $intitule): self
     {
-        $this->codePostal = $codePostal;
+        $this->intitule = $intitule;
 
         return $this;
     }
 
-    public function getNumero(): ?string
+    public function getLocalisation(): ?string
     {
-        return $this->numero;
+        return $this->localisation;
     }
 
-    public function setNumero(string $numero): self
+    public function setLocalisation(string $localisation): self
     {
-        $this->numero = $numero;
+        $this->localisation = $localisation;
 
         return $this;
     }
+
+
+
+
 
 
 }
