@@ -30,8 +30,7 @@ class BiensCrudController extends AbstractCrudController
             TextField::new('etat'),
             ImageField::new('image')
                 ->setBasePath('image/')
-                ->setWidth(5000)
-                ->setHeight(5000)
+
                 ->setUploadDir('/public/image')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
 
