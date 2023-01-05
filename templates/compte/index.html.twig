@@ -11,6 +11,10 @@
        <h3>Nom : {{ app.user.nom }} </h3>
        <h3>Prenom : {{ app.user.prenoms}} </h3>
    </div><br><br>
+    <hr>
+    {% if is_granted('ROLE_ADMIN') %}
+    <h4><a href="/admin">Page Admin</a></h4>
+    {% endif %}
     -Modifer mot de passe
     -gérer adresse
     -consulter favoris
