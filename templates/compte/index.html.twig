@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CompteController!{% endblock %}
+
+{% block content %}
+    <center><h1>Mon Compte</h1></center>
+    <center><h3>Bienvenue  {{ app.user.nom }} dans votre espace Personnel !!</h3></center>
+    <hr>
+   <div style="margin-left: 4% ;background: #F5FFFA; width: 50%;border:  solid #FF1493;padding-left: 4%" >
+       <h2>Mes Informations </h2>
+       <h3>Nom : {{ app.user.nom }} </h3>
+       <h3>Prenom : {{ app.user.prenoms}} </h3>
+   </div><br><br>
+    -Modifer mot de passe
+    -gérer adresse
+    -consulter favoris
+
+
+
+
+{% endblock %}
