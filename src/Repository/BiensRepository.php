@@ -42,17 +42,14 @@ class BiensRepository extends ServiceEntityRepository
 //    /**
 //     * @return Biens[] Returns an array of Biens objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findByCategorie(int $id): array
+    {
+      return $this->createQueryBuilder('b')
+          ->select('b')
+          ->where('b.category = ' .$id)
+          ->getQuery()
+          ->getResult();
+   }
 
 //    public function findOneBySomeField($value): ?Biens
 //    {

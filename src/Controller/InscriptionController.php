@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\User;
 use App\Form\InscriptionType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,7 +28,7 @@ class InscriptionController extends AbstractController
 
     #[Route('/inscription', name: 'app_inscription')]
     public function index(Request $request,UserPasswordHasherInterface $passwordHasher)
-    {
+    {       $Category = $this->entityManager->getRepository(Category::class)->findAll();
             $user = new User();
             $form = $this->createForm(InscriptionType::class, $user);
             $form->handleRequest($request);
@@ -45,7 +46,8 @@ class InscriptionController extends AbstractController
             }
 
         return $this->render('inscription/index.html.twig',[
-            'form'=>$form->createView()
+            'form'=>$form->createView(),
+            'Categories'=> $Category,
         ]);
     }
 }

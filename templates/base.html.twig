@@ -71,12 +71,10 @@
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark">Biens <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="waves-effect waves-dark" href="{{ path('app_biens') }}">Tous les Biens</a></li>
-                                    <li><a class="waves-effect waves-dark" href="{{ path('app_terrain_agricole') }}">Terrain agricole</a></li>
-                                    <li><a class="waves-effect waves-dark" href="{{ path('app_prairie') }}">prairie</a></li>
-                                    <li><a class="waves-effect waves-dark" href="{{ path('app_bois') }}">Bois</a></li>
-                                    <li><a class="waves-effect waves-dark" href="{{ path('app_batiments') }}">Bâtiments</a></li>
-                                    <li><a class="waves-effect waves-dark" href="{{ path('app_exploitations') }}">Exploitations</a></li>
+                                    {% for categorie in Categories %}
+                                        <li><a class="waves-effect waves-dark" href="{{ path('app_category',{'id':categorie.id})}}">{{ categorie.nom }}</a></li>
+
+                                    {% endfor %}
                                 </ul>
                             </li>
                             <li><a class="waves-effect waves-dark" href="#abouts">A propos </a></li>
@@ -194,3 +192,5 @@
 <script src="assets/js/custom.js"></script>
 </body>
 </html>
+
+
