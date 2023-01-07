@@ -50,7 +50,19 @@ class BiensRepository extends ServiceEntityRepository
           ->getQuery()
           ->getResult();
    }
-
+    public function findBySearchCriteria($intitule, $prix, $localisation)
+    {
+        return $this->createQueryBuilder('b')
+            ->select('b')
+            ->where('b.intitule = :intitule')
+            ->setParameter('intitule', $intitule)
+            ->andWhere('b.prix = :prix')
+            ->setParameter('prix', $prix)
+            ->andWhere('b.localisation = :localisation')
+            ->setParameter('localisation', $localisation)
+            ->getQuery()
+            ->getResult();
+    }
 //    public function findOneBySomeField($value): ?Biens
 //    {
 //        return $this->createQueryBuilder('b')

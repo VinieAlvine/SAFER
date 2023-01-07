@@ -24,9 +24,12 @@ class HomeController extends AbstractController
         $Category = $this->entityManager->getRepository(Category::class)->findAll();
         shuffle($Biens);
         //dd($Category);
+        //
         return $this->render('home/index.html.twig',[
             'Biens'=>array_slice($Biens, 0, 3),
-            'Categories'=>$Category
+            'Categories'=> $Category,
+
+
 
         ]);
     }
