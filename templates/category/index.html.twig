@@ -62,6 +62,10 @@
                                 <h5>{{bien.localisation}}</h5>
                                 {{bien.descriptif}}
                                 </p>
+                                <form action="{{ path('app_favoris_add',{'bien_id':bien.id}) }}" method="post">
+                                    <input type="hidden" name="bien_id" value="{{ bien.id }}">
+                                    <button type="submit" class="btn btn-primary btn-block">Add fav</button>
+                                </form>
                             </div>
                         </div>
                     </div>
