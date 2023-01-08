@@ -19,17 +19,12 @@ class SlideController extends AbstractController
     #[Route('/slide', name: 'app_slide')]
     public function index(): Response
     {
-        $Biens = $this->entityManager
-
-               ->getRepository(Biens::class)
-               ->createQueryBuilder('b')
-               ->orderBy('b.id')
-               ->setMaxResults(3)
-               ->getQuery()->getResult();
+        $Biens = $this->entityManager->getRepository(Biens::class)->findAll();
+        shuffle($Biens);
 
         //dd($Category);
-        return $this->render('home/slide.html.twig',[
-            'Biens'=>$Biens
+        return $this->render('home/index.html.twig',[
+            'Biens'=>array_slice($Biens, 0, 3)
         ]);
     }
 }

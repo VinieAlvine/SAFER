@@ -19,14 +19,14 @@ class BiensController extends AbstractController
     #[Route('/biens', name: 'app_biens')]
     public function index() {
         $Biens = $this->entityManager->getRepository(Biens::class)->findAll();
+        $Category = $this->entityManager->getRepository(Category::class)->findAll();
 
         //dd($Category);
         return $this->render('biens/index.html.twig',[
-            'Biens'=>$Biens
+            'Biens'=>$Biens,
+            'Categories'=>$Category
         ]);
-        //return $this->render('terrain_agricole/index.html.twig',[
-        //   'Category'=>$Category
-        // ]);
+
 
 
 

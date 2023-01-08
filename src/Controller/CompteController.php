@@ -8,21 +8,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BatimentsController  extends AbstractController
+class CompteController extends AbstractController
 {
     private  $entityManager;
+    // private $passwordEncoder;
+
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
+        // $this->passwordEncoder = $passwordEncoder;
     }
-    #[Route('/batiments', name: 'app_batiments')]
-    public function index() {
-        $Category = $this->entityManager->getRepository(Category::class)->findOneBy(['nom' => 'Bâtiments']);
-        $Biens = $Category->getBiens();
-        //dd($Biens);
-        //dd($Category);
-        return $this->render('batiments/index.html.twig',[
-            'Biens'=>$Biens
-        ]);
+
+    #[Route('/compte', name: 'app_compte')]
+    public function index(): Response
+    {
+        $Category = $this->entityManager->getRepository(Category::class)->findAll();
+        return $this->render('compte/index.html.twig',[ 'Categories'=> $Category]);
     }
+
+
 }

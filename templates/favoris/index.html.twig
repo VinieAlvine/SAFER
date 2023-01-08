@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-
     <section id="content">
         <div class="container content">
             <!-- Service Blcoks -->
@@ -9,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="about-logo">
-                        <h3>Bois</h3>
+                        <h3>Favoris</h3>
                         <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas</p>
                         <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas</p>
                     </div>
@@ -17,11 +16,11 @@
             </div>
 
 
-            <div class="row service-v1 margin-bottom-40">
+            <div class="row service-v1 margin-bottom-40" >
                 {% for bien in Biens %}
-                    <div class="col-md-4 md-margin-bottom-40">
-                        <div class="card small">
-                            <div class="card-image">
+                    <div class="col-md-4 md-margin-bottom-40" >
+                        <div class="card small" style="width:299px;height:490px;">
+                            <div class="card-image" style="width:300px;height:250px;">
                                 <img class="img-responsive" src="/image/{{bien.image}} " alt="">
                             </div>
                             <div class="card-content">
@@ -39,6 +38,10 @@
                                 <h5>{{bien.localisation}}</h5>
                                 {{bien.descriptif}}
                                 </p>
+                                <form action="{{ path('app_favoris_delete',{'bien_id':bien.id}) }}" method="post">
+                                    <input type="hidden" name="bien_id" value="{{ bien.id }}">
+                                    <button type="submit" class="btn btn-primary btn-block">Sup fav</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -46,13 +49,6 @@
 
             </div>
 
-
-
-
-
-
         </div>
     </section>
-
-
 {% endblock %}
