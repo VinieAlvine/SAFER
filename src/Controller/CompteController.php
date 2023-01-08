@@ -25,4 +25,6 @@ class CompteController extends AbstractController
         $Category = $this->entityManager->getRepository(Category::class)->findAll();
         return $this->render('compte/index.html.twig',[ 'Categories'=> $Category]);
     }
+
+
 }

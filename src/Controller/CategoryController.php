@@ -27,7 +27,7 @@ class CategoryController extends AbstractController
     public function index(BiensRepository $biensRepository, int $id,Request $request,Category $category): Response
     {
         $categories = $this->entityManager->getRepository(Category::class)->findAll();
-       // dd($categories);
+       //dd($categories);
         $biens = $this->entityManager->getRepository(Biens::class)->findByCategory($id);
         //
         $form = $this->createForm(SearchType::class);
