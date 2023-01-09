@@ -19,10 +19,13 @@ class SlideController extends AbstractController
     #[Route('/slide', name: 'app_slide')]
     public function index(): Response
     {
+        // on récupère tous les biens
         $Biens = $this->entityManager->getRepository(Biens::class)->findAll();
+        // on mélange les biens
         shuffle($Biens);
 
         //dd($Category);
+        // on sélectionne 3 et on affiche
         return $this->render('home/index.html.twig',[
             'Biens'=>array_slice($Biens, 0, 3)
         ]);

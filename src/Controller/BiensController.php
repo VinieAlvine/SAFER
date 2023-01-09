@@ -18,7 +18,9 @@ class BiensController extends AbstractController
     }
     #[Route('/biens', name: 'app_biens')]
     public function index() {
+        // on récupère tous les biens
         $Biens = $this->entityManager->getRepository(Biens::class)->findAll();
+        // on récupère toutes les catégorie
         $Category = $this->entityManager->getRepository(Category::class)->findAll();
 
         //dd($Category);

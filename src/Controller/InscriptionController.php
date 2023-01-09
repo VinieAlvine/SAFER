@@ -29,10 +29,12 @@ class InscriptionController extends AbstractController
     #[Route('/inscription', name: 'app_inscription')]
     public function index(Request $request,UserPasswordHasherInterface $passwordHasher)
     {       $Category = $this->entityManager->getRepository(Category::class)->findAll();
+        // on cree un nouvelle utilisateur
             $user = new User();
             $form = $this->createForm(InscriptionType::class, $user);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
+                // le formulaires est soumis
                 $user = $form->getData();
                 $plaintextPassword=$user->getPassword() ;
 
@@ -40,6 +42,7 @@ class InscriptionController extends AbstractController
                    $user,
                    $plaintextPassword
                );
+               // cryptage du mot de pass
         $user->setPassword($hashedPassword);
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
